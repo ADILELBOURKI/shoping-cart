@@ -156,14 +156,13 @@ const  Products = ()=> {
   }
     let totalPrice = cart.length==0? 0 : cart.reduce((acc,cur)=>{return acc+Number(cur.price)},0)
 
-
     return (
         
         <div>        
             <div className="header">
     <div className="header__cart"> cart {cart.length}</div>
             <div className="headr__products">products</div>
-    <div className="headr__products">Total : {total}</div>
+    <div className="headr__products">Total : {totalPrice}</div>
 
             </div>
             <div className="products">
