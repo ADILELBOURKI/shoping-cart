@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import Cart from '../cart/Cart';
 import './products.style.css'
 const  Products = ()=> {
      const SHOP = [
@@ -134,6 +136,7 @@ const  Products = ()=> {
         imageUrl: 'https://i.ibb.co/VpW4x5t/roll-up-jean-shirt.png',
         price: 40
       },
+      
       {
         id: 35,
         name: 'Burgundy T-shirt',
@@ -143,8 +146,7 @@ const  Products = ()=> {
   ];
   const [products] = React.useState(SHOP)
   const [cart,setCart]=React.useState([])
-  const [prices,setPrices]=React.useState([])
-  const [total,setTotal]= React.useState(0);
+
 /*here I add products to cart */
   const addToCart =(product)=>{
       console.log(product)
@@ -160,7 +162,7 @@ const  Products = ()=> {
         
         <div>        
             <div className="header">
-    <div className="header__cart"> cart {cart.length}</div>
+    <Link className ='link' to='/cart'><div className="header__cart" > cart ({cart.length})</div></Link> 
             <div className="headr__products">products</div>
     <div className="headr__products">Total : {totalPrice}</div>
 
@@ -173,9 +175,12 @@ const  Products = ()=> {
                 <h1>{product.name}</h1>
             <span>{product.price}$</span>
             </div>
-            <button onClick={()=>addToCart(product)}>Add to cart</button>
-            </div>})}
+              <button onClick={() => { addToCart(product) }}>Add to cart</button>
+            </div>
+            })}
+          <div>{cart.map(cart => { return <Cart id={cart.id} name={cart.name} price={cart.price} total={totalPrice}/>})}</div>
         </div>
+        
         </div>
 
     )

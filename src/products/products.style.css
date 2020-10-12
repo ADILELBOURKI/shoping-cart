@@ -20,7 +20,7 @@
   justify-content: center;
 }
 
-.header__cart,
+/* .header__cart, */
 .headr__products {
   margin: 5px;
   text-align: center;
@@ -28,4 +28,17 @@
   width: 20%;
   background-color: aquamarine;
   height: 50px;
+}
+.header__cart:hover {
+  cursor: pointer;
+}
+.link {
+  text-decoration: none;
+
+  height: 50px;
+  margin: 5px;
+  text-align: center;
+  line-height: 50px;
+  width: 20%;
+  background-color: aquamarine;
 }
